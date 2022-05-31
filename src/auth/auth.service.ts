@@ -1,14 +1,14 @@
 import { Injectable } from '@nestjs/common';
 import { PROCORE_AUTH_URL, PROCORE_CLIENT_ID, PROCORE_REDIRECT_URI, PROCORE_CLIENT_SECRET } from '../config';
 import {AuthorizationCallbackDto, OauthTokenResponseDto, OauthTokenRequestDto} from './auth.dto';
-import { HttpService } from '@nestjs/axios';
+import { ProcoreLoginService } from '../procore/procore-login/procore-login.service';
 
 
 
 @Injectable()
 export class AuthService {
 
-        constructor(private httpService: HttpService){
+        constructor(private procoreLoginService: ProcoreLoginService){
 
         }
 
@@ -30,7 +30,7 @@ export class AuthService {
             requestDto.grant_type = 'authorization_code';
             requestDto.redirect_uri = PROCORE_REDIRECT_URI;
             
-            const response = this.httpService.post('/oauth/token', requestDto);
+            const response = this.procoreLoginService.getAccessToken(callbackDto.code);
             return response;
 
         }
