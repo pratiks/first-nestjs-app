@@ -8,7 +8,7 @@ export const PROCORE_AUTH_URL = process.env.PROCORE_AUTH_URL || 'https://login-s
 export const PROCORE_API_URL = process.env.PROCORE_API_URL || 'https://api-sandbox-monthly.procore.com';
 
 export const PROCORE_REDIRECT_URI =
-  process.env.PROCORE_REDIRECT_URI || 'http://localhost';
+  process.env.PROCORE_REDIRECT_URI || 'https://spin-back.ngrok.io/callback';
 
 export const PROCORE_COMPANY_ID = process.env.PROCORE_COMPANY_ID || '31733';
 

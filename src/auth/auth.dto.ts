@@ -1,5 +1,7 @@
 import { IsNotEmpty } from "class-validator";
 
+
+
 export class AuthorizationCallbackDto {
 
     @IsNotEmpty()
@@ -14,7 +16,7 @@ export class OauthTokenResponseDto {
     refresh_token: string;
     created_at: number;
   }
-  
+
 
 
 
